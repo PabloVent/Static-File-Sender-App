@@ -1,0 +1,86 @@
+/* Bordered form */
+form {
+    border: 2px solid rgb(228, 228, 247);
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    height: 680px;
+    display: inline-block;
+    margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+    margin-top: 15px;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid rgb(204, 204, 204);
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4E4CAF;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    border-radius: 20px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.6;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Center the imac image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* imac image */
+img.imacImage {
+    width: 30%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 30px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+
+/*.sideBySideForm{
+    display: inline-block;
+    }*/
+}
+
