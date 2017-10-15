@@ -5,9 +5,7 @@ var path = require("path");
 
 
 var app = express();
-app.use(morgan("short"));
-app.use(express.static('static'));
-
+app.use(morgan("combined"));
 
 // app.use(function(req, res, next){
 //     console.log("Request IP: " + req.url);
@@ -15,22 +13,23 @@ app.use(express.static('static'));
 //     next();
 // });
 //app.use(express.static('./static'));
-app.use(function(req, res, next){
-    var filePath = path.join(__dirname, "static", req.url);
-    fs.stat(filePath, function(err, fileInfo){
-        if(err){
-            next();
-            return;
-        } else{
-            next();
-        }
-        if(fileInfo.isFile()){
-            res.sendFile(filePath);
-        } else {
-            next();
-        }
-    });
-});
+//app.use(function(req, res, next){
+    app.use(express.static('static'));
+    var filePath = path.join(__dirname, "static");
+//     fs.stat(filePath, function(err, fileInfo){
+//         if(err){
+//             next();
+//             return;
+//         } else{
+//             next();
+//         }
+//         if(fileInfo.isFile()){
+//             res.sendFile(filePath);
+//         } else {
+//             next();
+//         }
+//     });
+// });
 
 app.use(function(req, res) {
     res.status(404);
