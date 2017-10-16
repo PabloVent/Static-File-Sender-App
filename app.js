@@ -5,7 +5,7 @@ var path = require("path");
 
 
 var app = express();
-app.use(morgan("combined"));
+app.use(morgan("short"));
 
 // app.use(function(req, res, next){
 //     console.log("Request IP: " + req.url);
@@ -14,8 +14,8 @@ app.use(morgan("combined"));
 // });
 //app.use(express.static('./static'));
 //app.use(function(req, res, next){
-    app.use(express.static('static'));
-    var filePath = path.join(__dirname, "static");
+app.use(express.static('static'));
+var filePath = path.join(__dirname, "static");
 //     fs.stat(filePath, function(err, fileInfo){
 //         if(err){
 //             next();
@@ -31,11 +31,21 @@ app.use(morgan("combined"));
 //     });
 // });
 
-app.use(function(req, res) {
+app.use(function (req, res) {
     res.status(404);
     res.send("File not found!");
 });
 
-app.listen(3000, function(){
-    console.log("App started on port 3000");   
+app.use(function (err, req, res, next) {
+    console.error(err);
+    next(err);
+});
+
+app.use(function (err, req, res, next) {
+    res.status(500);
+    res.send("Internal server error.");
+});
+
+app.listen(3000, function () {
+    console.log("App started on port 3000");
 });
