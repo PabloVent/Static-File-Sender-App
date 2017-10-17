@@ -10,10 +10,9 @@ app.use(morgan("short"));
 //     console.log("Request date: " + new Date());
 //     next();
 // });
-//app.use(express.static('./static'));
 //app.use(function(req, res, next){
 app.use(express.static('static'));
-var filePath = path.join(__dirname, "static");
+path.join(__dirname, "static");
 //     fs.stat(filePath, function(err, fileInfo){
 //         if(err){
 //             next();
@@ -28,9 +27,20 @@ var filePath = path.join(__dirname, "static");
 //         }
 //     });
 // });
+
 app.use(function (req, res) {
     res.status(404);
     res.send("File not found!");
+});
+
+app.use(function (err, req, res, next) {
+    console.error(err);
+    next(err);
+});
+
+app.use(function (err, req, res, next) {
+    res.status(500);
+    res.send("Internal server error.");
 });
 
 app.listen(3000, function () {
