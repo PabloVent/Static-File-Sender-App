@@ -1,6 +1,7 @@
 {
     "name": "static-file-sender",
     "private": true,
+    "main": "index.js",
     "scripts": {
         "start": "nodemon app.js"
     },
